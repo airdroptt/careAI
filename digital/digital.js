@@ -1,4 +1,4 @@
-import { API_BASE } from "../config.js";
+export const API_BASE = "https://web-admin-ck6m.onrender.com";
 const API = `${API_BASE}/api/digital-human`;
 document.addEventListener("DOMContentLoaded", () => {
 

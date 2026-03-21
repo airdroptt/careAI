@@ -1,4 +1,4 @@
-import { API_BASE } from "../config.js";
+export const API_BASE = "https://web-admin-ck6m.onrender.com";
 let chartInstance = null;
 let currentTab = 0;
 let selectedStart = null;

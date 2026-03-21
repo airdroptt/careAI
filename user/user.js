@@ -1,4 +1,5 @@
-import { API_BASE } from "../config.js";
+
+export const API_BASE = "https://web-admin-ck6m.onrender.com";
 document.addEventListener("DOMContentLoaded", () => {
 
   const page = document.body.dataset.page;
