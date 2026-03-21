@@ -1,4 +1,4 @@
-import { API_BASE } from "./config.js";
+import { API_BASE } from "../config.js";
 document.addEventListener("DOMContentLoaded", () => {
 
   const page = document.body.dataset.page;
