@@ -1,5 +1,4 @@
-import { API_BASE } from "./config.js";
-
+import { API_BASE } from "../config.js";
 let chartInstance = null;
 let currentTab = 0;
 let selectedStart = null;
