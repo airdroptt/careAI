@@ -1,5 +1,12 @@
 
-export const API_BASE = "https://web-admin-ck6m.onrender.com";
+export const API_BASE = "https://care-ai-fb8q.onrender.com";
+
+function toAbsoluteImageUrl(path) {
+  if (!path) return "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+  if (/^https?:\/\//i.test(path)) return path;
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return `${API_BASE}${cleanPath}`;
+}
 document.addEventListener("DOMContentLoaded", () => {
 
   const page = document.body.dataset.page;
@@ -316,11 +323,7 @@ async function loadUserDetail(id){
     if(!u) return;
     const avatar = document.getElementById("avatar");
 
-    if (u.avatarUrl) {
-      avatar.src = `${API_BASE}${u.avatarUrl}`;
-    } else {
-      avatar.src = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
-    }
+    avatar.src = toAbsoluteImageUrl(u.avatarUrl);
 
     document.getElementById("name").innerText = u.tenND ?? "-";
 
@@ -448,9 +451,7 @@ console.log("User data:", u);
     const avatar = document.getElementById("avatarPreview");
 
     if (avatar) {
-      avatar.src = u.avatarUrl
-        ? `${API_BASE}${u.avatarUrl}`
-        : "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+      avatar.src = toAbsoluteImageUrl(u.avatarUrl);
     }
 
   } catch (err) {

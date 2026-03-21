@@ -1,5 +1,21 @@
-export const API_BASE = "https://web-admin-ck6m.onrender.com";
+export const API_BASE = "https://care-ai-fb8q.onrender.com";
+
 const API = `${API_BASE}/api/digital-human`;
+
+function toAbsoluteImageUrl(path) {
+  if (!path) return "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+  if (/^https?:\/\//i.test(path)) return path;
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return `${API_BASE}${cleanPath}`;
+}
+
+function toStoredImagePath(urlOrPath) {
+  if (!urlOrPath) return "";
+  if (/^https?:\/\//i.test(urlOrPath)) {
+    return urlOrPath.replace(`${API_BASE}/`, "").replace(`${API_BASE}`, "");
+  }
+  return urlOrPath.startsWith("/") ? urlOrPath.slice(1) : urlOrPath;
+}
 document.addEventListener("DOMContentLoaded", () => {
 
   const page = document.body.dataset.page;
@@ -27,9 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const gender = d.gioitinh ? "Nam" : "Nữ";
 
-      const avatar = d.imageurl
-  ? `${API_BASE}/${d.imageurl}`
-  : "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+      const avatar = toAbsoluteImageUrl(d.imageurl);
 
         const row = `
           <tr data-id="${d.digitalhuman_id}">
@@ -142,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
           systemPrompt.value = d.systemprompt || "";
 
           if (d.imageurl && avatarPreview) {
-            avatarPreview.src = `${API_BASE}/${d.imageurl}`;
+            avatarPreview.src = toAbsoluteImageUrl(d.imageurl);
             avatarPreview.classList.remove("hidden");
           }
 
@@ -170,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (avatarPreview?.src) {
           form.append(
             "image",
-            avatarPreview.src.replace(`${API_BASE}/`, "")
+            toStoredImagePath(avatarPreview.src)
           );
         }
 
@@ -344,9 +358,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const avatar = document.getElementById("digitalAvatar");
 
-    avatar.src = d.imageurl
-  ? `${API_BASE}/${d.imageurl}`
-  : "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+    avatar.src = toAbsoluteImageUrl(d.imageurl);
 
     } catch (err) {
       console.error(err);
