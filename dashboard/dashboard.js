@@ -181,7 +181,7 @@ function initExport() {
    DATE FORMAT
 ========================== */
 function formatDate(date) {
-  return date.toLocaleDateString("en-US", {
+  return date.toLocaleDateString("vi-VN", {
     month: "short",
     day: "numeric",
     year: "numeric"
@@ -199,6 +199,7 @@ function initDatePicker() {
 
   flatpickr("#dateRange", {
     mode: "range",
+    locale: "vn",
     dateFormat: "M d, Y",
     defaultDate: [today, today],
 
