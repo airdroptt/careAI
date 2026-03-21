@@ -1,4 +1,4 @@
-import { API_BASE } from "./config.js";
+import { API_BASE } from "../config.js";
 const API = `${API_BASE}/api/digital-human`;
 document.addEventListener("DOMContentLoaded", () => {
 
