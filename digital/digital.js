@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const gender = d.gioitinh ? "Nam" : "Nữ";
 
       const avatar = d.imageurl
-  ? `${API_BASE}${d.imageurl}`
+  ? `${API_BASE}/${d.imageurl}`
   : "https://cdn-icons-png.flaticon.com/512/149/149071.png";
 
         const row = `
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
           systemPrompt.value = d.systemprompt || "";
 
           if (d.imageurl && avatarPreview) {
-            avatarPreview.src = `${API_BASE}${d.imageurl}`;
+            avatarPreview.src = `${API_BASE}/${d.imageurl}`;
             avatarPreview.classList.remove("hidden");
           }
 
@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const avatar = document.getElementById("digitalAvatar");
 
     avatar.src = d.imageurl
-  ? `${API_BASE}${d.imageurl}`
+  ? `${API_BASE}/${d.imageurl}`
   : "https://cdn-icons-png.flaticon.com/512/149/149071.png";
 
     } catch (err) {
