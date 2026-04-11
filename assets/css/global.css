@@ -12,6 +12,8 @@
     --bg-white: #FFFFFF;
     --bg-soft: #F1F5F9;
     --bg-input: #E2E8F0;
+    --bg-sidebar: #EFF4FF;
+    --bg-hover: rgba(0, 0, 0, 0.05);
     --border-color: #E2E8F0;
 
     /* Text */
@@ -57,6 +59,8 @@
     --bg-white: #1E293B;
     --bg-soft: #334155;
     --bg-input: #334155;
+    --bg-sidebar: #0F172A;
+    --bg-hover: rgba(255, 255, 255, 0.05);
     --border-color: #334155;
     --text-primary: #F8FAFC;
     --text-secondary: #94A3B8;
