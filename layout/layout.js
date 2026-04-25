@@ -41,7 +41,6 @@ const Layout = {
             if (window.I18n) {
                 window.I18n.translatePage();
             }
-            this.addLanguageSwitcher();
 
             if (window.lucide) {
                 window.lucide.createIcons();
